@@ -49,6 +49,11 @@ namespace RAA_Level_02
 
             string filePath = curForm.GetFilePath();
 
+            if(filePath == null )
+            {
+                return Result.Cancelled;
+            }
+
             return Result.Succeeded;
         }
 
