@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RAA_Level_02"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="500" Title="Project Setup">
+             d:DesignHeight="350" d:DesignWidth="500" Title="Revit Add-in Academy">
     <Border Margin="10">
         <Grid>
             <Grid.RowDefinitions>
@@ -26,7 +26,7 @@
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="tbxSelect" Grid.Column="0"/>
-                <Button x:Name="btnSelect" Grid.Column="1" Content="Select" Width="90" HorizontalAlignment="Right"/>
+                <Button x:Name="btnSelect" Grid.Column="1" Content="Select" Width="90" HorizontalAlignment="Right" Click="btnSelect_Click"/>
             </Grid>
             <Label Content="Select Units:" Grid.Row="3" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Center">
@@ -39,8 +39,8 @@
                 <CheckBox x:Name="cbCeilingPlan" Content="Ceiling Plan" IsChecked="False"/>
             </StackPanel>
             <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" />
-                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30"/>
+                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click" />
+                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30" Click="btnCancel_Click"/>
             </StackPanel>
         </Grid>
     </Border>
