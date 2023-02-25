@@ -1,0 +1,48 @@
+﻿<Window x:Class="RAA_Level_02.frmProjectSetup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAA_Level_02"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="500" Title="Project Setup">
+    <Border Margin="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Project Setup" Grid.Row="0" FontWeight="Bold" FontSize="36"/>
+            <Label Grid.Row="1" Content="Select setup CSV file:" FontWeight="Bold"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="tbxSelect" Grid.Column="0"/>
+                <Button x:Name="btnSelect" Grid.Column="1" Content="Select" Width="90" HorizontalAlignment="Right"/>
+            </Grid>
+            <Label Content="Select Units:" Grid.Row="3" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Center">
+                <RadioButton x:Name="rbImperial" Content="Imperial" Margin="0,0,10,0" IsChecked="True"/>
+                <RadioButton x:Name="rbMetric" Content="Metric"/>
+            </StackPanel>
+            <Label Content="Select Views to Create:" Grid.Row="5" FontWeight="Bold"/>
+            <StackPanel Grid.Row="6">
+                <CheckBox x:Name="cbFloorPlan" Content="Floor Plan" Margin="0,0,0,5" IsChecked="True"/>
+                <CheckBox x:Name="cbCeilingPlan" Content="Ceiling Plan" IsChecked="False"/>
+            </StackPanel>
+            <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" />
+                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+    
+</Window>
