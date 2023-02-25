@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RAA_Level_02"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="500" Title="Revit Add-in Academy">
+             d:DesignHeight="380" d:DesignWidth="500" Title="Revit Add-in Academy">
     <Border Margin="10">
         <Grid>
             <Grid.RowDefinitions>
@@ -25,10 +25,10 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="tbxSelect" Grid.Column="0"/>
+                <TextBox x:Name="tbxSelect" Grid.Column="0" VerticalContentAlignment="Center"/>
                 <Button x:Name="btnSelect" Grid.Column="1" Content="Select" Width="90" HorizontalAlignment="Right" Click="btnSelect_Click"/>
             </Grid>
-            <Label Content="Select Units:" Grid.Row="3" FontWeight="Bold"/>
+            <Label Content="Select Units:" Grid.Row="3" FontWeight="Bold" VerticalAlignment="Bottom"/>
             <StackPanel Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Center">
                 <RadioButton x:Name="rbImperial" Content="Imperial" Margin="0,0,10,0" IsChecked="True"/>
                 <RadioButton x:Name="rbMetric" Content="Metric"/>
@@ -36,7 +36,7 @@
             <Label Content="Select Views to Create:" Grid.Row="5" FontWeight="Bold"/>
             <StackPanel Grid.Row="6">
                 <CheckBox x:Name="cbFloorPlan" Content="Floor Plan" Margin="0,0,0,5" IsChecked="True"/>
-                <CheckBox x:Name="cbCeilingPlan" Content="Ceiling Plan" IsChecked="False"/>
+                <CheckBox x:Name="cbCeilingPlan" Content="Ceiling Plan" IsChecked="True"/>
             </StackPanel>
             <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click" />

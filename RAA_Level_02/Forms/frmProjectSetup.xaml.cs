@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Autodesk.Revit.UI;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,16 @@ namespace RAA_Level_02
         {
             this.DialogResult = false;
             this.Close();
+        }
+
+        internal string GetFilePath()
+        {
+            if (tbxSelect.Text != "")
+                return tbxSelect.Text;
+            else
+                TaskDialog.Show("Error", "Please select a file!");
+
+            return null;
         }
     }
 }

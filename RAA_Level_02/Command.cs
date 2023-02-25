@@ -26,21 +26,28 @@ namespace RAA_Level_02
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
-            // put any code needed for the form here
+            // step 1: not used
 
-            // open form
+            // step 2: open form
 
             frmProjectSetup curForm= new frmProjectSetup()
             {
-                Width = 800,
-                Height = 450,
+                Width = 500,
+                Height = 360,
                 WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen,
                 Topmost = true,
             };
 
-            curForm.ShowDialog();
+            if(curForm.ShowDialog() == false)
+            {
+                return Result.Cancelled;
+            }
 
-            // get form data and do something
+            // step 3: in the code-behind
+
+            // step 4: get form data and do something
+
+            string filePath = curForm.GetFilePath();
 
             return Result.Succeeded;
         }
