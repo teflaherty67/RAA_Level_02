@@ -62,5 +62,15 @@ namespace RAA_Level_02
 
             return null;
         }
+
+        internal string GetUnits()
+        {
+            if(rbImperial.IsChecked == true)
+            {
+                return "Imperial";
+            }
+
+            return "Metric";
+        }
     }
 }

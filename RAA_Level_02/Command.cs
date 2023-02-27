@@ -54,6 +54,56 @@ namespace RAA_Level_02
                 return Result.Cancelled;
             }
 
+            // read csv file
+
+            string[] levelArray = System.IO.File.ReadAllLines(filePath);
+
+            //read csv data into a list
+
+            List<string[]> levelData = new List<string[]>();
+
+            foreach( string level in levelArray ) 
+            {
+                string[] cellData = level.Split(',');
+                levelData.Add(cellData);
+            }
+
+            // remove header row
+
+            levelData.RemoveAt(0);
+
+            // create levels & views
+
+            foreach( string[] curLevelData in levelData )
+            {
+                // set variables
+
+                string levelName = curLevelData[0];
+                string elevImperialString = curLevelData[1];
+                string elevMetricString = curLevelData[2];
+
+                double levelElevation = 0;
+
+                if(curForm.GetUnits() == "Imperial")
+                {
+                    // imperial
+
+                    double.TryParse(elevImperialString, out levelElevation);
+                }
+                else
+                {
+                    // metric
+
+                    double.TryParse(elevMetricString, out levelElevation);
+                }
+
+                // create levels
+
+                Level curLevel = Level.Create(doc, levelElevation);
+                curLevel.Name = levelName;
+            }
+
+
             return Result.Succeeded;
         }
 
