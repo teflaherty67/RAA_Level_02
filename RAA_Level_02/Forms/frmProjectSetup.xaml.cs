@@ -72,5 +72,21 @@ namespace RAA_Level_02
 
             return "Metric";
         }
+
+        internal bool CreateFloorPlan()
+        {
+            if(cbFloorPlan.IsChecked == true)
+               return true;
+
+            return false;
+        }
+
+        internal bool CreateCeilingPlan()
+        {
+            if (cbCeilingPlan.IsChecked == true)
+                return true;
+
+            return false;
+        }
     }
 }

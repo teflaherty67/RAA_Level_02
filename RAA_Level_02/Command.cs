@@ -72,6 +72,9 @@ namespace RAA_Level_02
 
             levelData.RemoveAt(0);
 
+            Transaction t = new Transaction(doc);
+            t.Start("Project Setup");
+
             // create levels & views
 
             foreach( string[] curLevelData in levelData )
@@ -101,8 +104,22 @@ namespace RAA_Level_02
 
                 Level curLevel = Level.Create(doc, levelElevation);
                 curLevel.Name = levelName;
+
+                // create views
+
+                if( curForm.CreateFloorPlan() == true )
+                {
+                    ViewPlan curPlan = ViewPlan.Create(doc, planVFT.ID, curLevel.Id);
+                }
+
+                if(curForm.CreateCeilingPlan()  == true )
+                {
+
+                }
             }
 
+            t.Commit();
+            t.Dispose();
 
             return Result.Succeeded;
         }
