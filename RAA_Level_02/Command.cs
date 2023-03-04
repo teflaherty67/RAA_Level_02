@@ -97,7 +97,9 @@ namespace RAA_Level_02
                 {
                     // metric
 
-                    double.TryParse(elevMetricString, out levelElevation);
+                    double metricConvert = 0;
+                    double.TryParse(elevMetricString, out metricConvert);
+                    levelElevation = metricConvert * 3.28084;
                 }
 
                 // create levels
@@ -109,19 +111,39 @@ namespace RAA_Level_02
 
                 if( curForm.CreateFloorPlan() == true )
                 {
-                    ViewPlan curPlan = ViewPlan.Create(doc, planVFT.ID, curLevel.Id);
+                    ViewFamilyType floorPlanVFT = GetViewFamilyTypeByName(doc, "Floor Plan", ViewFamily.FloorPlan);
+
+                    ViewPlan curFloorPlan = ViewPlan.Create(doc, floorPlanVFT.Id, curLevel.Id);
                 }
 
                 if(curForm.CreateCeilingPlan()  == true )
                 {
+                    ViewFamilyType ceilingPlanVFT = GetViewFamilyTypeByName(doc, "Ceiling Plan", ViewFamily.CeilingPlan);
 
+                    ViewPlan curCeilingPlan = ViewPlan.Create(doc, ceilingPlanVFT.Id, curLevel.Id);
                 }
             }
 
             t.Commit();
             t.Dispose();
 
+            TaskDialog.Show("Complete", "Created " + levelData.Count + " levels and views.");
+
             return Result.Succeeded;
+        }
+
+        private ViewFamilyType GetViewFamilyTypeByName(Document doc, string vftName, ViewFamily viewFamily)
+        {
+            FilteredElementCollector collector = new FilteredElementCollector(doc);
+            collector.OfClass(typeof(ViewFamilyType));
+
+            foreach(ViewFamilyType curVFT in collector)
+            {
+                if(curVFT.Name == vftName && curVFT.ViewFamily == viewFamily)
+                    return curVFT;
+            }
+
+            return null;
         }
 
         public static String GetMethod()
